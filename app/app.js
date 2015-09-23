@@ -5,11 +5,10 @@ var myApp = angular.module('myApp', [
     'ngRoute',
     'ConfigurationService',
     'MovieService',
+    'myApp.version',
     'myApp.home',
     'myApp.dashboard',
-    'myApp.detail',
-    'myApp.view2',
-    'myApp.version'
+    'myApp.detail'
 ]);
 
 myApp.config(['$routeProvider', function($routeProvider) {
@@ -25,10 +24,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
         when('/detail/:id', {
             templateUrl: 'detail/detail.html',
             controller: 'DetailCtrl'
-        }).
-        when('/view2', {
-            templateUrl: 'view2/view2.html',
-            controller: 'View2Ctrl'
         }).
         otherwise({
             redirectTo: '/'
