@@ -6,6 +6,7 @@ myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, 
 
     getPopularMovies();
 //    getTopRatedMovies();
+//    getUpcomingMovies();
 
     function getPopularMovies() {
         MovieData.getPopularMovies()
@@ -24,4 +25,14 @@ myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, 
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
     }
+
+    function getUpcomingMovies() {
+        MovieData.getUpcomingMovies()
+            .then(function(response) {
+                $scope.recentlyAdded = response.data;
+            }, function(reponse) {
+                $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
+            })
+    }
+
 }]);
