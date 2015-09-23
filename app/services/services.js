@@ -16,7 +16,7 @@ ConfigurationService.factory('ConfigData', function configDataFactory() {
 
 var MovieService = angular.module('MovieService', []);
 MovieService.factory('MovieData', ['ConfigData', '$http', function (ConfigData, $http) {
-console.log("init MovieService ");
+
     var base_url = ConfigData.base_url;
     var api_key = ConfigData.api_key;
     var lang = "&language=en&include_image_language=en";
@@ -34,25 +34,7 @@ console.log("init MovieService ");
     MovieData.getUpcomingMovies = function() {
         return $http.get(base_url + 'movie/upcoming' + api_key + lang);
     };
-console.log("return MovieData ");
+
     return MovieData;
 
 }]);
-
-
-//var StudentService = angular.module('StudentService', [])
-//StudentService.factory('StudentDataOp', ['$http', function ($http) {
-//
-//    var urlBase = 'http://localhost:2307/Service1.svc';
-//    var StudentDataOp = {};
-//
-//    StudentDataOp.getStudents = function () {
-//        return $http.get(urlBase+'/GetStudents');
-//    };
-//
-//    StudentDataOp.addStudent = function (stud) {
-//        return $http.post(urlBase + '/AddStudent', stud);
-//    };
-//    return StudentDataOp;
-//
-//}]);
