@@ -4,8 +4,8 @@ var myApp = angular.module('myApp.home', ['MovieService']);
 
 myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, $http, MovieData) {
 
-//    getPopularMovies();
-    getTopRatedMovies();
+    getPopularMovies();
+//    getTopRatedMovies();
 
     function getPopularMovies() {
         MovieData.getPopularMovies()
@@ -25,9 +25,5 @@ myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, 
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
     }
+
 }]);
-
-
-
-
-//http://api.themoviedb.org/3/movie/popular?api_key=###&language=en&include_image_language=en
