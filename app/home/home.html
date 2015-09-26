@@ -1,25 +1,67 @@
-<div ng-module="myApp.home" class="row-fluid">
+<div ng-module="myApp.home">
 
-    <div class="alert alert-"{{errorMessage.type}} role="alert">
-        <p>{{errorMessage.message}}</p>
-    </div>
-
-    <div class="panel panel-default">
-
-        <div class="panel-heading">
-            <h4>Most Popular</h4>
+        <div class="alert alert-"{{errorMessage.type}} role="alert">
+            <p>{{errorMessage.message}}</p>
         </div>
 
-        <div class="panel-body">
-
-            <div ng-repeat="movie in recentlyAdded.results" class="col-xs-6 col-sm-4 col-md-3">
-                <div class="thumbnail">
-                    <a href="#/{{movie.Type}}/{{movie.imdbID}}">
-                        <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="img-responsive" >
-                    </a>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Upcomming movies</h4>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="movie in upcoming.results" ng-if="$index < 6" class="col-xs-6 col-sm-4 col-md-2">
+                    <div class="thumbnail">
+                        <a ng-href="#/detail/{{movie.id}}">
+                            <img ng-src="{{config.image_base_url}}w500{{movie.poster_path}}" class="img-responsive" >
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="panel-footer">
+                <div class="text-right">
+                    <a ng-href="#/list/upcoming">view more</a>
+                </div>
+            </div>
+        </div>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Top rated movies</h4>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="movie in topRated.results" ng-if="$index < 6" class="col-xs-6 col-sm-4 col-md-2">
+                    <div class="thumbnail">
+                        <a ng-href="#/detail/{{movie.id}}">
+                            <img ng-src="{{config.image_base_url}}w500{{movie.poster_path}}" class="img-responsive" >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="text-right">
+                    <a ng-href="#/list/toprated">view more</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Popular movies</h4>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="movie in popular.results" ng-if="$index < 6" class="col-xs-6 col-sm-4 col-md-2">
+                    <div class="thumbnail">
+                        <a ng-href="#/detail/{{movie.id}}">
+                            <img ng-src="{{config.image_base_url}}w500{{movie.poster_path}}" class="img-responsive" >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="text-right">
+                    <a ng-href="#/list/popular">view more</a>
+                </div>
+            </div>
         </div>
 
     </div>

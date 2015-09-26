@@ -2,16 +2,18 @@
 
 var myApp = angular.module('myApp.home', ['MovieService']);
 
-myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, $http, MovieData) {
+myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
+
+    $scope.config = ConfigData;
 
     getPopularMovies();
-//    getTopRatedMovies();
-//    getUpcomingMovies();
+    getTopRatedMovies();
+    getUpcomingMovies();
 
     function getPopularMovies() {
         MovieData.getPopularMovies()
             .then(function(response) {
-                $scope.recentlyAdded = response.data;
+                $scope.popular = response.data;
             }, function(response) {
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
@@ -20,7 +22,7 @@ myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, 
     function getTopRatedMovies() {
         MovieData.getTopRatedMovies()
             .then(function(response) {
-                $scope.recentlyAdded = response.data;
+                $scope.topRated = response.data;
             }, function(response) {
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
@@ -29,7 +31,7 @@ myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', function ($scope, 
     function getUpcomingMovies() {
         MovieData.getUpcomingMovies()
             .then(function(response) {
-                $scope.recentlyAdded = response.data;
+                $scope.upcoming = response.data;
             }, function(reponse) {
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
