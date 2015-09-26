@@ -8,7 +8,8 @@ var myApp = angular.module('myApp', [
     'myApp.version',
     'myApp.home',
     'myApp.dashboard',
-    'myApp.detail'
+    'myApp.detail',
+    'myApp.list'
 ]);
 
 myApp.config(['$routeProvider', function($routeProvider) {
@@ -24,6 +25,18 @@ myApp.config(['$routeProvider', function($routeProvider) {
         when('/detail/:id', {
             templateUrl: 'detail/detail.html',
             controller: 'DetailCtrl'
+        }).
+        when('/list/upcoming', {
+            templateUrl: 'list/list.html',
+            controller: 'upcomingListCtrl'
+        }).
+        when('/list/toprated', {
+            templateUrl: 'list/list.html',
+            controller: 'topRatedListCtrl'
+        }).
+        when('/list/popular', {
+            templateUrl: 'list/list.html',
+            controller: 'popularListCtrl'
         }).
         otherwise({
             redirectTo: '/'

@@ -1,0 +1,71 @@
+<div ng-module="myApp.list">
+
+    <div class="page-header">
+        <h4>{{page.title}}</h4>
+    </div>
+
+    <div class="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="{{page.searchText}}">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">{{page.searchBtn}}</button>
+                </span>
+        </div>
+    </div>
+
+    <div class="panel" ng-repeat="movie in movieData.results">
+        <div class="panel-body">
+            <div class="col-xs-12 col-md-4">
+                <a ng-href="#/detail/{{movie.id}}">
+                    <img ng-src="{{config.image_base_url}}w780{{movie.poster_path}}" class="img-responsive" >
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-md-8">
+                <h2>
+                    <a ng-href="#/detail/{{movie.id}}">{{movie.title}}</a>
+                </h2>
+                <p>{{movie.overview}}</p>
+                <table class="table table-hover">
+                    <tr>
+                        <td>release date</td>
+                        <td>{{movie.release_date}}</td>
+                    </tr>
+                    <tr>
+                        <td>popularity</td>
+                        <td>{{movie.popularity}}</td>
+                    </tr>
+                    <tr>
+                        <td>vote average</td>
+                        <td>{{movie.vote_average}}</td>
+                    </tr>
+                    <tr>
+                        <td>vote count</td>
+                        <td>{{movie.vote_count}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--
+{
+    "adult":false,
+    "backdrop_path":"/wn3VKnObN5KkXVIjJbKFfofZ6pc.jpg",
+    "genre_ids":[12,878,28],
+    "id":286217,
+    "original_language":"en",
+    "original_title":"The Martian",
+    "overview":"During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.",
+    "release_date":"2015-10-02",
+    "poster_path":"/AjbENYG3b8lhYSkdrWwlhVLRPKR.jpg",
+    "popularity":4.634097,
+    "title":"The Martian",
+    "video":false,
+    "vote_average":6.0,
+    "vote_count":35
+},
+-->
