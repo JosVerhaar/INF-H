@@ -6,14 +6,14 @@
 
     <div class="search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="{{page.searchText}}">
+            <input type="text" ng-model="searchQuery" class="form-control" placeholder="{{page.searchText}}">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">{{page.searchBtn}}</button>
                 </span>
         </div>
     </div>
 
-    <div class="panel" ng-repeat="movie in movieData.results">
+    <div class="panel" ng-repeat="movie in movieData.results | filter:searchQuery | orderBy:movie.popularity">
         <div class="panel-body">
             <div class="col-xs-12 col-md-4">
                 <a ng-href="#/detail/{{movie.id}}">
