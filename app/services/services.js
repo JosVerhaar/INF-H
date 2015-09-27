@@ -36,8 +36,8 @@ MovieService.factory('MovieData', ['ConfigData', '$http', function (ConfigData, 
         if (page == 0 || page == null) {
             page = 1;
         }
-        return $http.get(base_url + 'movie/upcoming' + api_key + lang + '&page=' + page)
-    }
+        return $http.get(base_url + 'movie/upcoming' + api_key + lang + '&page=' + page);
+    };
 
     return MovieData;
 
