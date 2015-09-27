@@ -31,6 +31,10 @@ MovieService.factory('MovieData', ['ConfigData', '$http', function (ConfigData, 
 
     };
 
+    MovieData.getMovieDetail = function() {
+        return $http.get(base_url + 'movie/244786' + api_key + lang);
+    }
+
     MovieData.getUpcomingMovies = function(page) {
 
         if (page == 0 || page == null) {
