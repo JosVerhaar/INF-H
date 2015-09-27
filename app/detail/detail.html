@@ -31,6 +31,22 @@
                     <td>budget</td>
                     <td>{{movieData.budget}}</td>
                 </tr>
+                <tr>
+                    <td>genres</td>
+                    <td><div ng-repeat="genre in movieData.genres">{{genre.name}}, </div></td>
+                </tr>
+                <tr>
+                    <td>tagline</td>
+                    <td>{{movieData.tagline}}</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>{{movieData.status}}</td>
+                </tr>
+                <tr>
+                    <td>homepage</td>
+                    <td><a href="{{movieData.homepage}}">go to homepage</a></td>
+                </tr>
             </table>
 
             <img ng-src="{{config.image_base_url}}w780{{movieData.backdrop_path}}" class="img-responsive" >

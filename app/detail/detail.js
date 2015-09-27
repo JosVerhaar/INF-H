@@ -2,13 +2,13 @@
 
 var module = angular.module('myApp.detail', ['MovieService']);
 
-module.controller('DetailCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
+module.controller('DetailCtrl', ['$scope', '$http', '$routeParams', 'MovieData', 'ConfigData', function ($scope, $http, $routeParams, MovieData, ConfigData) {
 
     $scope.movieData = {};
     $scope.config = ConfigData;
 
 
-    MovieData.getMovieDetail()
+    MovieData.getMovieDetail($routeParams.id)
     .then(function(response) {
         $scope.movieData = response.data;
         console.log($scope.movieData);
