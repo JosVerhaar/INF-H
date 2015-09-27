@@ -1,8 +1,21 @@
 'use strict';
 
-angular.module('myApp.detail', ['ngRoute'])
+var module = angular.module('myApp.detail', ['MovieService']);
 
-.controller('DetailCtrl', [function() {
+module.controller('DetailCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
+
+    $scope.movieData = {};
+    $scope.config = ConfigData;
+
+
+    MovieData.getMovieDetail()
+    .then(function(response) {
+        $scope.movieData = response.data;
+        console.log($scope.movieData);
+
+    }, function(response) {
+        $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
+    })
 
 }]);
 

@@ -1,1 +1,40 @@
-<p>This is the partial for view 1.</p>
+
+<div ng-module="myApp.detail"><div class="panel">
+    <div class="panel-body">
+        <div class="col-xs-12 col-md-4">
+            <img ng-src="{{config.image_base_url}}w780{{movieData.poster_path}}" class="img-responsive" >
+        </div>
+
+        <div class="col-xs-12 col-md-8">
+            <h2>{{movieData.title}}</h2>
+
+            <p>{{movieData.overview}}</p>
+
+            <table class="table table-hover">
+                <tr>
+                    <td>release date</td>
+                    <td>{{movieData.release_date}}</td>
+                </tr>
+                <tr>
+                    <td>popularity</td>
+                    <td>{{movieData.popularity}}</td>
+                </tr>
+                <tr>
+                    <td>vote average</td>
+                    <td>{{movieData.vote_average}}</td>
+                </tr>
+                <tr>
+                    <td>vote count</td>
+                    <td>{{movieData.vote_count}}</td>
+                </tr>
+                <tr>
+                    <td>budget</td>
+                    <td>{{movieData.budget}}</td>
+                </tr>
+            </table>
+
+            <img ng-src="{{config.image_base_url}}w780{{movieData.backdrop_path}}" class="img-responsive" >
+        </div>
+    </div>
+</div>
+</div>
