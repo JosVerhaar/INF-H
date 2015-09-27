@@ -5,10 +5,12 @@ module.exports = function(config){
 
     files : [
       'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-loader/angular-loader.js',
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular-resource/angular-resource.js',
       'app/components/**/*.js',
-      'app/view*/**/*.js'
+      'app/**/*.js'
     ],
 
     autoWatch : true,
@@ -18,11 +20,11 @@ module.exports = function(config){
     browsers : ['Chrome'],
 
     plugins : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-junit-reporter'
-            ],
+        'karma-chrome-launcher',
+        'karma-firefox-launcher',
+        'karma-jasmine',
+        'karma-junit-reporter'
+    ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',
