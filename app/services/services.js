@@ -40,9 +40,26 @@ MovieService.factory('MovieData', ['ConfigData', '$http', function (ConfigData, 
         if (page == 0 || page == null) {
             page = 1;
         }
-        return $http.get(base_url + 'movie/upcoming' + api_key + lang + '&page=' + page)
-    }
+        return $http.get(base_url + 'movie/upcoming' + api_key + lang + '&page=' + page);
+    };
 
     return MovieData;
+
+}]);
+
+var SearchService = angular.module('SearchService', []);
+SearchService.factory('SearchData', ['ConfigData', '$http', function (ConfigData, $http) {
+
+    var base_url = ConfigData.base_url;
+    var api_key = ConfigData.api_key;
+    var lang = "&language=en&include_image_language=en";
+    var SearchData = {};
+
+    SearchData.searchMulti = function(query) {
+
+        return $http.get(base_url + 'search/multi' + api_key + '&query' + query);
+    };
+
+    return SearchData;
 
 }]);

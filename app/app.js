@@ -9,7 +9,8 @@ var myApp = angular.module('myApp', [
     'myApp.home',
     'myApp.dashboard',
     'myApp.detail',
-    'myApp.list'
+    'myApp.list',
+    'myApp.search'
 ]);
 
 myApp.config(['$routeProvider', function($routeProvider) {
@@ -37,6 +38,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
         when('/list/popular', {
             templateUrl: 'list/list.html',
             controller: 'popularListCtrl'
+        }).
+        when('/search', {
+            templateUrl: 'search/search.html',
+            controller: 'searchCtrl'
         }).
         otherwise({
             redirectTo: '/'
