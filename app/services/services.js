@@ -51,9 +51,9 @@ SearchService.factory('SearchData', ['ConfigData', '$http', function (ConfigData
     var lang = "&language=en&include_image_language=en";
     var SearchData = {};
 
-    SearchData.searchMulti = function(query) {
+    SearchData.searchMovie = function(query) {
 
-        return $http.get(base_url + 'search/multi' + api_key + '&query' + query);
+        return $http.get(base_url + 'search/movie' + api_key + '&query="' + query + '"');
     };
 
     return SearchData;
