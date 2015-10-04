@@ -16,8 +16,7 @@ var myApp = angular.module('myApp', [
 myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'home/home.html',
-            controller: 'HomeCtrl'
+            templateUrl: 'home/home.html'
         }).
         when('/dashboard', {
             templateUrl: 'dashboard/dashboard.html',

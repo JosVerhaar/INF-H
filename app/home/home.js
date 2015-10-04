@@ -2,22 +2,28 @@
 
 var myApp = angular.module('myApp.home', ['MovieService']);
 
-myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
+myApp.controller('upcomingMovieCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
 
     $scope.config = ConfigData;
 
-    getPopularMovies();
-    getTopRatedMovies();
     getUpcomingMovies();
 
-    function getPopularMovies() {
-        MovieData.getPopularMovies()
+    function getUpcomingMovies() {
+        MovieData.getUpcomingMovies()
             .then(function(response) {
-                $scope.popular = response.data;
+                $scope.upcoming = response.data;
             }, function(response) {
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
     }
+
+}]);
+
+myApp.controller('topRatedMovieCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
+
+    $scope.config = ConfigData;
+
+    getTopRatedMovies();
 
     function getTopRatedMovies() {
         MovieData.getTopRatedMovies()
@@ -28,11 +34,19 @@ myApp.controller('HomeCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', func
             })
     }
 
-    function getUpcomingMovies() {
-        MovieData.getUpcomingMovies()
+}]);
+
+myApp.controller('popularMovieCtrl', ['$scope', '$http', 'MovieData', 'ConfigData', function ($scope, $http, MovieData, ConfigData) {
+
+    $scope.config = ConfigData;
+
+    getPopularMovies();
+
+    function getPopularMovies() {
+        MovieData.getPopularMovies()
             .then(function(response) {
-                $scope.upcoming = response.data;
-            }, function(reponse) {
+                $scope.popular = response.data;
+            }, function(response) {
                 $scope.errorMessage = {type: "danger", message: "Failed to load movie data \n" + response.message};
             })
     }
